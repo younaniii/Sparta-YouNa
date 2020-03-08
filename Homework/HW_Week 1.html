@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homework Week 1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework Week 1</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+
+    * {
+      font-family: 'Noto Serif KR', serif;
+    }
+  
+    .wrap {
+      margin: auto
+    }
+
+    img {
+      display:block;
+      width: 30%;
+      margin: auto;
+      border-radius:3px;
+      border-style: solid;
+      border-color: #d9d8d6;
+      border-width: 0.5px;
+    }
+  
+
+  </style>
+
 </head>
 <body>
-
-<img scr="">
-
-    <div>
-        <p>목각인형 <br/> <span> 가격: 30,000원 / 개</p>
+  <div class="wrap">
+    <div class="ProductImage">
+    <img src="https://i.pinimg.com/564x/be/c2/9d/bec29d1163b03b515528458f61aa6326.jpg" alt="pink tulip">
     </div>
 
+    <div class="ProductInfo">
+      <h1>연분홍 튤립<span>가격: 30,000원/다발</span></h1>
+      <p>분홍색 튤립은 행복, 행운 그리고 애정을 상징한대요. 다가오는 화이트데이에는 연분홍 튤립으로 사랑을 건네보세요.</p> 
+    </div>
+    
+    <div class="ProductOrderInfo">
+      <h1>주문하기</h1>
+    </div>
 
-    <div>
-        <h1>주문하기</h1>
-       
-        <div class="form-group">
-            <label class="sr-only" for="inlineFormInputName2">주문자 성함</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-          
-            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-            <div class="input-group mb-2 mr-sm-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">@</div>
-              </div>
-              <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-            </div>
-
-        <div class="col-auto my-1">
-            <label class="mr-sm-2" for="inlineFormCustomSelect">수량</label>
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>수량을 선택하세요</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-       
-          <div class="form-group">
-            <label for="exampleFormControlSelect2">주소</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            </select>
-        </div>
-       
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">전화번호</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        </div>
-    </div> 
+    <div class="ButtonOrder">
+      <button type="button" class="btn btn-info">주문하기</button>
+    </div>
+  </div>
 </body>
 </html>
