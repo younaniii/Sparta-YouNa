@@ -23,7 +23,8 @@
     }
   
     .wrap {
-      margin: auto
+      margin: 50px;
+      font-size: 17pt;
     }
 
     img {
@@ -36,6 +37,23 @@
       border-width: 0.5px;
     }
   
+    .h1 {display: inline}  
+    .span {font-size: 50pt}
+    
+    .ProductInfo {
+      margin: 50px;
+    }
+
+    .ProductOrderInfo { 
+      margin: 50px;
+      max-width: 1500;
+    }
+
+    .ButtonOrder {
+      text-align: center;
+      font-size: 50pt;
+      font-weight: bold;
+    }
 
   </style>
 
@@ -48,11 +66,39 @@
 
     <div class="ProductInfo">
       <h1>연분홍 튤립<span>가격: 30,000원/다발</span></h1>
-      <p>분홍색 튤립은 행복, 행운 그리고 애정을 상징한대요. 다가오는 화이트데이에는 연분홍 튤립으로 사랑을 건네보세요.</p> 
+      <p>분홍색 튤립은 행복, 행운 그리고 애정을 상징한대요. 다가오는 화이트데이에는 소중한 그 사람에게 연분홍 튤립으로 사랑을 건네보세요.</p> 
     </div>
     
     <div class="ProductOrderInfo">
       <h1>주문하기</h1>
+        <div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">주문자 성함</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1">
+        </div>
+
+        <div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">연락처</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">수량(다발)</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">수령지 주소</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1"></textarea>
+        </div>
+      </div>
     </div>
 
     <div class="ButtonOrder">
