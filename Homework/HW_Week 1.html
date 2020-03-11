@@ -20,38 +20,53 @@
 
     * {
       font-family: 'Noto Serif KR', serif;
-    }
-  
+      }
+/* Q blank lines 간격은 그대로 두고, 소제목과 본문 내용 사이에 동일한 간격을 동시에 주는 방법은? */
     .wrap {
       margin: 50px;
-      font-size: 17pt;
+      font-size: 15pt
     }
 
     img {
       display:block;
-      width: 30%;
+      width: 45%;
       margin: auto;
-      border-radius:3px;
+      border-radius:4px;
       border-style: solid;
       border-color: #d9d8d6;
       border-width: 0.5px;
     }
-  
-    .h1 {display: inline}  
-    .span {font-size: 50pt}
+/* Q 동일 Heading 내에서는 폰트 크기/스타일/색상변경 불가능한가? */
+/* Q 소제목 아래쪽에 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? */
+    #ItemName {
+      font-size: 30pt;
+      font-weight: bold;
+      margin: 0 0 50 0;
+    }
+
+    #ItemPrice {
+      font-size: 18pt;
+      margin: 30pt;
+    }
     
     .ProductInfo {
       margin: 50px;
     }
 
+    #Order {
+      font-size: 25pt;
+      font-weight: bold;
+    }
+
     .ProductOrderInfo { 
       margin: 50px;
-      max-width: 1500;
+      max-width: 400px;
+      align: left;
     }
 
     .ButtonOrder {
       text-align: center;
-      font-size: 50pt;
+      font-size: 2rem;
       font-weight: bold;
     }
 
@@ -61,17 +76,16 @@
 <body>
   <div class="wrap">
     <div class="ProductImage">
-    <img src="https://i.pinimg.com/564x/be/c2/9d/bec29d1163b03b515528458f61aa6326.jpg" alt="pink tulip">
+    <img src="https://i.pinimg.com/564x/71/4c/f7/714cf79acf34b7e985ec0149967573ea.jpg" alt="wooden mannequin">
     </div>
 
     <div class="ProductInfo">
-      <h1>연분홍 튤립<span>가격: 30,000원/다발</span></h1>
-      <p>분홍색 튤립은 행복, 행운 그리고 애정을 상징한대요. 다가오는 화이트데이에는 소중한 그 사람에게 연분홍 튤립으로 사랑을 건네보세요.</p> 
+      <span id="ItemName">인테리어 목각인형 화분<span id="ItemPrice">가격: 10,000원/개</span></span>
+      <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p> 
     </div>
     
     <div class="ProductOrderInfo">
-      <h1>주문하기</h1>
-        <div>
+      <Span id="Order">주문하기</Span>
         <div class="form-group">
           <label for="exampleFormControlInput1">주문자 성함</label>
           <input type="text" class="form-control" id="exampleFormControlInput1">
@@ -84,7 +98,7 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">수량(다발)</label>
+            <label for="exampleFormControlSelect1">수량(개)</label>
             <select class="form-control" id="exampleFormControlSelect1">
               <option>1</option>
               <option>2</option>
