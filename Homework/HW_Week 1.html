@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homework Week 1</title>
-  
+
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 
   <style type="text/css">
-
     * {
       font-family: 'Noto Serif KR', serif;
-      }
-/* Q blank lines 간격은 그대로 두고, 소제목과 본문 내용 사이에 동일한 간격을 동시에 주는 방법은? */
+    }
+
+    /* Q blank lines 간격은 그대로 두고, 소제목과 본문 내용 사이에 동일한 간격을 동시에 주는 방법은? */
     .wrap {
-      margin: 50px;
+      margin: 70px;
       font-size: 15pt
     }
 
     img {
-      display:block;
+      display: block;
       width: 45%;
       margin: auto;
-      border-radius:4px;
+      border-radius: 4px;
       border-style: solid;
       border-color: #d9d8d6;
       border-width: 0.5px;
     }
-/* Q 동일 Heading 내에서는 폰트 크기/스타일/색상변경 불가능한가? */
-/* Q 소제목 아래쪽에 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? */
+
+    /* Q 동일 Heading 내에서는 폰트 크기/스타일/색상변경 불가능한가? */
+    /* Q 소제목 아래쪽에 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? */
     #ItemName {
       font-size: 30pt;
       font-weight: bold;
@@ -48,7 +57,7 @@
       font-size: 18pt;
       margin: 30pt;
     }
-    
+
     .ProductInfo {
       margin: 50px;
     }
@@ -58,7 +67,7 @@
       font-weight: bold;
     }
 
-    .ProductOrderInfo { 
+    .ProductOrderInfo {
       margin: 50px;
       max-width: 400px;
       align: left;
@@ -69,43 +78,43 @@
       font-size: 2rem;
       font-weight: bold;
     }
-
   </style>
 
 </head>
+
 <body>
   <div class="wrap">
     <div class="ProductImage">
-    <img src="https://i.pinimg.com/564x/71/4c/f7/714cf79acf34b7e985ec0149967573ea.jpg" alt="wooden mannequin">
+      <img src="https://i.pinimg.com/564x/71/4c/f7/714cf79acf34b7e985ec0149967573ea.jpg" alt="wooden mannequin">
     </div>
 
     <div class="ProductInfo">
       <span id="ItemName">인테리어 목각인형 화분<span id="ItemPrice">가격: 10,000원/개</span></span>
-      <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p> 
+      <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p>
     </div>
-    
+
     <div class="ProductOrderInfo">
       <Span id="Order">주문하기</Span>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">주문자 성함</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">주문자 성함</label>
+          <label for="exampleFormControlInput1">연락처</label>
           <input type="text" class="form-control" id="exampleFormControlInput1">
         </div>
 
-        <div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">연락처</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
-        </div>
-
         <div class="form-group">
-            <label for="exampleFormControlSelect1">수량(개)</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+          <label for="exampleFormControlSelect1">수량(개)</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -116,8 +125,9 @@
     </div>
 
     <div class="ButtonOrder">
-      <button type="button" class="btn btn-info">주문하기</button>
+      <button type="button" class="btn btn-outline-success btn-lg">주문하기</button>
     </div>
   </div>
 </body>
+
 </html>
