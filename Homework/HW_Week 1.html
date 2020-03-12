@@ -31,14 +31,17 @@
 
     /* Q blank lines 간격은 그대로 두고, 소제목과 본문 내용 사이에 동일한 간격을 동시에 주는 방법은? */
     .wrap {
-      margin: 70px;
-      font-size: 15pt
+      max-width:600px;
+      margin: auto;
     }
 
     img {
       display: block;
-      width: 45%;
-      margin: auto;
+      width: 80%;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      margin-left: auto;
+      margin-right: auto;
       border-radius: 4px;
       border-style: solid;
       border-color: #d9d8d6;
@@ -46,37 +49,35 @@
     }
 
     /* Q 동일 Heading 내에서는 폰트 크기/스타일/색상변경 불가능한가? */
-    /* Q 소제목 아래쪽에 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? */
+    /* Q 소제목 아래쪽에 margin이나 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? */
+      
     #ItemName {
-      font-size: 30pt;
+      font-size: 20pt;
       font-weight: bold;
-      margin: 0 0 50 0;
     }
 
     #ItemPrice {
-      font-size: 18pt;
-      margin: 30pt;
+      font-size: 13pt;
+      margin: 18pt;
     }
+    .ProductInfo {margin: 0 0 20px 0}
 
-    .ProductInfo {
-      margin: 50px;
-    }
+    .ProductOrderInfo {margin: 20px 0 0 0}
 
     #Order {
-      font-size: 25pt;
+      font-size: 18pt;
       font-weight: bold;
     }
 
-    .ProductOrderInfo {
-      margin: 50px;
+    .form-group {
+      margin: auto;
+      padding: 6px;
       max-width: 400px;
-      align: left;
-    }
+      }
 
     .ButtonOrder {
       text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
+      margin: 30px;
     }
   </style>
 
@@ -88,11 +89,13 @@
       <img src="https://i.pinimg.com/564x/71/4c/f7/714cf79acf34b7e985ec0149967573ea.jpg" alt="wooden mannequin">
     </div>
 
+    <!-- 제목 아래에 간격을 주고 싶은데 br 안 먹히는 이유ㅠㅠ -->
     <div class="ProductInfo">
       <span id="ItemName">인테리어 목각인형 화분<span id="ItemPrice">가격: 10,000원/개</span></span>
+      <br>
       <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p>
     </div>
-
+    <hr>
     <div class="ProductOrderInfo">
       <Span id="Order">주문하기</Span>
       <div class="form-group">
