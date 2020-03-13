@@ -29,7 +29,7 @@
       font-family: 'Noto Serif KR', serif;
     }
 
-    /* Q blank lines 간격은 그대로 두고, 소제목과 본문 내용 사이에 동일한 간격을 동시에 주는 방법은? */
+    /* Q blank lines 간격은 그대로 두고, 소제목과 본문 내용 사이에 동일한 간격을 동시에 주는 방법은? /A h1으로 동일하게 변경하고, 동시에 스타일 적용해서 해결! */
     .wrap {
       max-width:600px;
       margin: auto;
@@ -48,9 +48,11 @@
       border-width: 0.5px;
     }
 
-    /* Q 동일 Heading 내에서는 폰트 크기/스타일/색상변경 불가능한가? */
-    /* Q 소제목 아래쪽에 margin이나 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? */
-      
+    /* Q 동일 Heading 내에서는 폰트 크기/스타일/색상변경 불가능한가? /A 불가능! */
+    /* Q 소제목 아래쪽에 margin이나 padding을 줘도 아래 본문과 간격이 늘어나지 않는 이유는? /A 소제목 아이템명만 span에서 h1으로 바꾸고 해결!*/
+
+    h1 {margin-bottom: 12px}  
+
     #ItemName {
       font-size: 20pt;
       font-weight: bold;
@@ -91,13 +93,12 @@
 
     <!-- 제목 아래에 간격을 주고 싶은데 br 안 먹히는 이유ㅠㅠ -->
     <div class="ProductInfo">
-      <span id="ItemName">인테리어 목각인형 화분<span id="ItemPrice">가격: 10,000원/개</span></span>
-      <br>
+      <h1 id="ItemName">인테리어 목각인형 화분<span id="ItemPrice">가격: 10,000원/개</span></h1>
       <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p>
     </div>
     <hr>
     <div class="ProductOrderInfo">
-      <Span id="Order">주문하기</Span>
+      <h1 id="Order">주문하기</h1>
       <div class="form-group">
         <label for="exampleFormControlInput1">주문자 성함</label>
         <input type="text" class="form-control" id="exampleFormControlInput1">
