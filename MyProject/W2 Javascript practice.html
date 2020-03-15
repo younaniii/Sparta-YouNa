@@ -1,0 +1,512 @@
+<!doctype html>
+    <html lang="en">
+    
+    <head>
+    
+        <!-- Webpage Title -->
+        <title>Hello, world!</title>
+    
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+        <!-- JS fb, Google Analytics pixel code를 주로 head에 심는다. body에 JS 삽입하는 것이 보통 조금 더 빠른 실행이 됨.-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        
+        <script>
+
+            let mise = [
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "도심권",
+                MSRSTE_NM: "중구",
+                PM10: 22,
+                PM25: 14,
+                O3: 0.018,
+                NO2: 0.015,
+                CO: 0.4,
+                SO2: 0.002,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 31,
+                ARPLT_MAIN: "O3"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "도심권",
+                MSRSTE_NM: "종로구",
+                PM10: 24,
+                PM25: 18,
+                O3: 0.013,
+                NO2: 0.016,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 39,
+                ARPLT_MAIN: "PM25"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "도심권",
+                MSRSTE_NM: "용산구",
+                PM10: 0,
+                PM25: 15,
+                O3: 0.012,
+                NO2: 0.027,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "점검중",
+                IDEX_MVL: -99,
+                ARPLT_MAIN: "점검중"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서북권",
+                MSRSTE_NM: "은평구",
+                PM10: 36,
+                PM25: 14,
+                O3: 0.019,
+                NO2: 0.018,
+                CO: 0.5,
+                SO2: 0.005,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 42,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서북권",
+                MSRSTE_NM: "서대문구",
+                PM10: 28,
+                PM25: 9,
+                O3: 0.018,
+                NO2: 0.015,
+                CO: 0.6,
+                SO2: 0.004,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 37,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서북권",
+                MSRSTE_NM: "마포구",
+                PM10: 26,
+                PM25: 8,
+                O3: 0.012,
+                NO2: 0.021,
+                CO: 0.5,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 36,
+                ARPLT_MAIN: "NO2"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "광진구",
+                PM10: 17,
+                PM25: 9,
+                O3: 0.018,
+                NO2: 0.016,
+                CO: 0.6,
+                SO2: 0.001,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 31,
+                ARPLT_MAIN: "O3"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "성동구",
+                PM10: 21,
+                PM25: 12,
+                O3: 0.018,
+                NO2: 0.017,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 33,
+                ARPLT_MAIN: "PM25"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "중랑구",
+                PM10: 27,
+                PM25: 10,
+                O3: 0.015,
+                NO2: 0.019,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 34,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "동대문구",
+                PM10: 26,
+                PM25: 9,
+                O3: 0.016,
+                NO2: 0.017,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 34,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "성북구",
+                PM10: 27,
+                PM25: 8,
+                O3: 0.022,
+                NO2: 0.014,
+                CO: 0.5,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 37,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "도봉구",
+                PM10: 25,
+                PM25: 12,
+                O3: 0.024,
+                NO2: 0.011,
+                CO: 0.3,
+                SO2: 0.002,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 41,
+                ARPLT_MAIN: "O3"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "강북구",
+                PM10: 30,
+                PM25: 15,
+                O3: 0.022,
+                NO2: 0.02,
+                CO: 0.4,
+                SO2: 0.002,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 39,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동북권",
+                MSRSTE_NM: "노원구",
+                PM10: 21,
+                PM25: 14,
+                O3: 0.017,
+                NO2: 0.016,
+                CO: 0.4,
+                SO2: 0.004,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 36,
+                ARPLT_MAIN: "PM25"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "강서구",
+                PM10: 36,
+                PM25: 16,
+                O3: 0.021,
+                NO2: 0.013,
+                CO: 0.4,
+                SO2: 0.004,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 42,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "구로구",
+                PM10: 23,
+                PM25: 10,
+                O3: 0.022,
+                NO2: 0.016,
+                CO: 0.3,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 37,
+                ARPLT_MAIN: "O3"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "영등포구",
+                PM10: 29,
+                PM25: 15,
+                O3: 0.01,
+                NO2: 0.022,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 41,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "동작구",
+                PM10: 29,
+                PM25: 15,
+                O3: 0.012,
+                NO2: 0.023,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 41,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "관악구",
+                PM10: 27,
+                PM25: 12,
+                O3: 0.012,
+                NO2: 0.022,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 37,
+                ARPLT_MAIN: "NO2"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "금천구",
+                PM10: 25,
+                PM25: 15,
+                O3: 0.015,
+                NO2: 0.02,
+                CO: 0.4,
+                SO2: 0.004,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 43,
+                ARPLT_MAIN: "PM25"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "서남권",
+                MSRSTE_NM: "양천구",
+                PM10: 0,
+                PM25: 14,
+                O3: 0.016,
+                NO2: 0.017,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "점검중",
+                IDEX_MVL: -99,
+                ARPLT_MAIN: "점검중"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동남권",
+                MSRSTE_NM: "강남구",
+                PM10: 31,
+                PM25: 16,
+                O3: 0.018,
+                NO2: 0.018,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 39,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동남권",
+                MSRSTE_NM: "서초구",
+                PM10: 34,
+                PM25: 13,
+                O3: 0.024,
+                NO2: 0.019,
+                CO: 0.3,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 41,
+                ARPLT_MAIN: "PM10"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동남권",
+                MSRSTE_NM: "송파구",
+                PM10: 25,
+                PM25: 6,
+                O3: 0.014,
+                NO2: 0.025,
+                CO: 0.4,
+                SO2: 0.003,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 42,
+                ARPLT_MAIN: "NO2"
+                },
+                {
+                MSRDT: "201912052100",
+                MSRRGN_NM: "동남권",
+                MSRSTE_NM: "강동구",
+                PM10: 24,
+                PM25: 14,
+                O3: 0.016,
+                NO2: 0.02,
+                CO: 0.4,
+                SO2: 0.002,
+                IDEX_NM: "좋음",
+                IDEX_MVL: 39,
+                ARPLT_MAIN: "PM25"
+                }
+                ]
+
+                for (let i = 0; i < mise.length; i++) {
+                    if (mise[i]['IDEX_MVL'] < 50) {
+                            let gu_name = mise[i]['MSRSTE_NM'];
+                            let gu_mise = mise[i]['IDEX_MVL'];
+                            console.log(gu_name, gu_mise);
+                    }
+                }
+                
+        </script>
+
+        <!-- 구글폰트 -->
+        <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+    
+        <!-- style -->
+        <style type="text/css">
+            * {
+                font-family: 'Stylish', sans-serif;
+            }
+    
+            .wrap {
+                width: 900px;
+                margin: auto;
+            }
+    
+            .comment {
+                color: blue;
+                font-weight: bold;
+            }
+    
+            .form-post {
+                max-width: 500px;
+                padding: 2rem;
+                margin: 2rem auto;
+                border-color: #e9ecef;
+                border-radius: 0.3rem;
+                border: solid;
+                display: block;
+            }
+        </style>
+    
+    </head>
+    
+    <body>
+        <div class="wrap">
+            <div class="jumbotron">
+                <h1 class="display-4">나홀로 링크 메모장!</h1>
+                <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
+                <hr class="my-4">
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
+                </p>
+            </div>
+            <div class="form-post" id="post-box">
+                <div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">아티클 URL</label>
+                        <input class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">간단 코멘트</label>
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="hey()">기사저장</button>
+                </div>
+            </div>
+            <div class="card-columns" id="cards-box">
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    </html>
