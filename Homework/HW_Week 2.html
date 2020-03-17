@@ -73,7 +73,7 @@
 
     .form-group {
       margin: auto;
-      padding: 6px;
+      padding: 6px 0 20px 0;
       max-width: 400px;
       }
 
@@ -84,10 +84,35 @@
   </style>
 
 <!-- Idea 1. alert 띄울 때, 동일 class selector를 이용해서 최소한의 함수로 만들 수는 없을까? 리스트에 id를 넣고 하나씩 순서 돌리는 것?-->
+<!-- let $("#form-control") -->
 <!-- Idea 2. 각 id에 적용할 alert 함수 하나씩 다 만들기 -->
 
   <script>
-    let $("#form-control")
+    let Order_Info = [
+      {$(#"OrderAmount").val() : '주문 수량'}, 
+      {$(#"ClientName").val() : '주문자 성함'}, 
+      {$(#"ClientContact").val() : '연락처'}, 
+      {$(#"ClientAddress").val() : '수령지 주소'}
+    ]
+
+    for (let i = 0; i < Order_Info.length; i++){
+      console.log(Order_Info[i]);
+    } 
+
+    function Order_Check(){
+      if (Order_Info[i] !== ''){
+        alert ('감사합니다! 주문이 완료되었습니다:)')
+      } else {
+        alert ( + '입력을 빠뜨리셨어요!')
+        // 블랭크 색깔 바꾸기 추가
+      }
+    }
+
+
+
+    // if (ClntName == ''){     alert('성함을 입력해 주세요.')  } else {    }
+
+
 
   </script>
 </head>
@@ -126,7 +151,7 @@
         
         <div class="form-group">
           <label for="exampleFormControlInput1">연락처</label>
-          <input type="text" class="form-control" id="ClientContact">
+          <input type="number" class="form-control" id="ClientContact">
         </div>
 
         <div class="form-group">
@@ -136,7 +161,7 @@
     </div>
 
     <div class="ButtonOrder">
-      <button type="button" class="btn btn-outline-success btn-lg">주문하기</button>
+      <button onclick="Order_Check()" type="button" class="btn btn-outline-success btn-lg">주문하기</button>
     </div>
   </div>
 </body>
