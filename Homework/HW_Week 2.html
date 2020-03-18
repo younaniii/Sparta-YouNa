@@ -88,30 +88,23 @@
 <!-- Idea 2. 각 id에 적용할 alert 함수 하나씩 다 만들기 -->
 
   <script>
-    let Order_Info = [
-      {$(#"OrderAmount").val() : '주문 수량'}, 
-      {$(#"ClientName").val() : '주문자 성함'}, 
-      {$(#"ClientContact").val() : '연락처'}, 
-      {$(#"ClientAddress").val() : '수령지 주소'}
-    ]
-
-    for (let i = 0; i < Order_Info.length; i++){
-      console.log(Order_Info[i]);
-    } 
+    let Order_Info = [$("#OrderAmount").val(), $("#ClientName").val(), $("#ClientContact").val(), $("#ClientAddress").val()]
 
     function Order_Check(){
+      for (let i = 0; i < Order_Info.length; i++){
+      console.log(Order_Info[i]);
+      } 
       if (Order_Info[i] !== ''){
+        console.log(Order_Info[i]);
         alert ('감사합니다! 주문이 완료되었습니다:)')
       } else {
         alert ( + '입력을 빠뜨리셨어요!')
+        $(Order_Info[i]).focus();
         // 블랭크 색깔 바꾸기 추가
       }
     }
 
-
-
     // if (ClntName == ''){     alert('성함을 입력해 주세요.')  } else {    }
-
 
 
   </script>
@@ -146,7 +139,7 @@
 
         <div class="form-group">
           <label for="exampleFormControlInput1">주문자 성함</label>
-          <input type="text" class="form-control" id="ClientName">
+          <input type="text" class="form-control" id="ClientName" onkeydown=movefocus("ClientContact")>
         </div>
         
         <div class="form-group">
