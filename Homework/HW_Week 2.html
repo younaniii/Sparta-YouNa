@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homework Week 1</title>
+  <title>Homework Week 2</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -53,20 +53,20 @@
 
     h1 {margin-bottom: 12px}  
 
-    #ItemName {
+    #itemName {
       font-size: 20pt;
       font-weight: bold;
     }
 
-    #ItemPrice {
+    #itemPrice {
       font-size: 13pt;
       margin: 18pt;
     }
-    .ProductInfo {margin: 0 0 20px 0}
+    .productInfo {margin: 0 0 20px 0}
 
-    .ProductOrderInfo {margin: 20px 0 0 0}
+    .productOrderInfo {margin: 20px 0 0 0}
 
-    #Order {
+    #order {
       font-size: 18pt;
       font-weight: bold;
     }
@@ -77,58 +77,118 @@
       max-width: 400px;
       }
 
-    .ButtonOrder {
+    .buttonOrder {
       text-align: center;
       margin: 30px;
     }
   </style>
 
 <!-- Idea 1. alert 띄울 때, 동일 class selector를 이용해서 최소한의 함수로 만들 수는 없을까? 리스트에 id를 넣고 하나씩 순서 돌리는 것?-->
-<!-- let $("#form-control") -->
-<!-- Idea 2. 각 id에 적용할 alert 함수 하나씩 다 만들기 -->
+<!-- let $("#form-control"): input value를 불러오는 기능이기 때문에 한꺼번에 모든 값을 가져오기는 불가능하고, 각 input을 각각 id로 불러야 한다. -->
+<!-- Idea 2. 각 id에 적용할 alert 함수 하나씩 다 만들기 : CORRECT-->
 
   <script>
-    let Order_Info = [$("#OrderAmount").val(), $("#ClientName").val(), $("#ClientContact").val(), $("#ClientAddress").val()]
+    function order_check(){
+      let amount = $('#orderAmount').val();
+      let name = $('#clientName').val();
+      let contact = $('#clientContact').val();
+      let address = $('#clientAddress').val();
 
-    function Order_Check(){
-      for (let i = 0; i < Order_Info.length; i++){
-      console.log(Order_Info[i]);
+// return: 불필요한 다음 함수를 실행하지 않도록 걸어주는 브레이크. 데이터가 정확함을 보증하는 수단이라고 생각하자! 리턴을 안 걸었다고 실행 속도를 느리게 한다거나 하는 건 아님.
+      if (amount == '수량을 선택하세요'){
+        alert ('수량을 선택해 주세요!');
+        $('#orderAmount').focus();
+        return;
       } 
-      if (Order_Info[i] !== ''){
-        console.log(Order_Info[i]);
-        alert ('감사합니다! 주문이 완료되었습니다:)')
-      } else {
-        alert ( + '입력을 빠뜨리셨어요!')
-        $(Order_Info[i]).focus();
-        // 블랭크 색깔 바꾸기 추가
+ 
+      if (name == ''){
+        alert ('성함을 입력해 주세요!');
+        $('#clientName').focus();
+        return;
+      }
+
+      if (contact_check = false){
+        alert ('전화번호를 입력해 주세요! 형식: 010-1234-1234')
+        $('#clientContact').focus();
+        return;
+      }
+
+      if (address == ''){
+        alert ('물건을 받으실 주소를 입력해 주세요')
+        $('#clientAddress').focus();
+        return;
+      }
+
+      else {
+        alert ('감사합니다! 주문이 완료되었습니다:)');
+        $('#orderAmount').empty();
+        $('#clientName').empty();
+        $('#clientContact').empty();
+        $('#clientAddress').empty();
       }
     }
 
-    // if (ClntName == ''){     alert('성함을 입력해 주세요.')  } else {    }
+    function contact_check(){
+      if (contact.indexOf('010-') < 0)
+      // 010-이 있는 경우(true), 두 번째 대시를 기준으로 쪼개고, 숫자열을 붙인다
+      // 그 숫자 갯수가 8개이면 전화번호 인증 성공, 아니면 재입력 alert
+    }
+
+    function is_number_right(phone) {
+            // 정규표현식 --> 비추라고 하심. 정말 필요할 때 찾아볼 수 있도록 그냥 알아만 두기.
+
+            // 1. 010이 첫번째에 있나? indexOf
+            if (phone.indexOf('010') != 0) {
+                return false;
+            }
+
+            // 2. - 포함이 되어 있나?
+            if (phone.indexOf('-') == -1) {
+                return false;
+            }
+
+            // 3. - 두 개가 있나?
+            let phone_info = phone.split('-'); [ '010','1234','4567']
+            if (phone_info.length != 3) {
+                return false;
+            }
+
+            // 4. - 로 쪼개지는 숫자가 총 3개고, 3, 3, 4의 길이가 각각 맞나?
+            for (let i=1; i<phone_info.length; i++) {
+                if (phone_info[i].length != 4) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
 
+    
   </script>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="ProductImage">
+    <div class="productImage">
       <img src="https://i.pinimg.com/564x/71/4c/f7/714cf79acf34b7e985ec0149967573ea.jpg" alt="wooden mannequin">
     </div>
 
     <!-- 제목 아래에 간격을 주고 싶은데 br 안 먹히는 이유ㅠㅠ -->
-    <div class="ProductInfo">
-      <h1 id="ItemName">인테리어 목각인형 화분<span id="ItemPrice">가격: 10,000원/개</span></h1>
+    <div class="productInfo">
+      <h1 id="itemName">인테리어 목각인형 화분<span id="itemPrice">가격: 10,000원/개</span></h1>
       <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p>
     </div>
     <hr>
-    <div class="ProductOrderInfo">
-      <h1 id="Order">주문하기</h1>
+    <div class="productOrderInfo">
+      <h1 id="order">주문하기</h1>
       
+      <!-- Q. 수량 선택란에 placeholder 넣기 불가능?: Nope. selected(빼박캔트) & disabled(선택지로 인정 안 해줌. null value) 이용해서 대체할 수 있음. -->
+      <!-- option 내의 입력값은 id가 아니라 value (jQuery에서 불러오는 그 .val) -->
         <div class="form-group">
           <label for="exampleFormControlSelect1">수량(개)</label>
-          <select class="form-control" id="OrderAmount">
-            <option>수량을 선택하세요</option>
+          <select class="form-control" id="orderAmount">
+            <option selected disabled>수량을 선택하세요</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -139,22 +199,22 @@
 
         <div class="form-group">
           <label for="exampleFormControlInput1">주문자 성함</label>
-          <input type="text" class="form-control" id="ClientName" onkeydown=movefocus("ClientContact")>
+          <input type="text" class="form-control" id="clientName">
         </div>
         
         <div class="form-group">
           <label for="exampleFormControlInput1">연락처</label>
-          <input type="number" class="form-control" id="ClientContact">
+          <input type="number" class="form-control" id="clientContact">
         </div>
 
         <div class="form-group">
           <label for="exampleFormControlTextarea1">수령지 주소</label>
-          <textarea class="form-control" id="ClientAddress"></textarea>
+          <textarea class="form-control" id="clientAddress"></textarea>
         </div>      
     </div>
 
-    <div class="ButtonOrder">
-      <button onclick="Order_Check()" type="button" class="btn btn-outline-success btn-lg">주문하기</button>
+    <div class="buttonOrder">
+      <button onclick="order_check()" type="button" class="btn btn-outline-success btn-lg">주문하기</button>
     </div>
   </div>
 </body>
