@@ -94,13 +94,19 @@
       let contact = $('#clientContact').val();
       let address = $('#clientAddress').val();
 
-// return: 불필요한 다음 함수를 실행하지 않도록 걸어주는 브레이크. 데이터가 정확함을 보증하는 수단이라고 생각하자! 리턴을 안 걸었다고 실행 속도를 느리게 한다거나 하는 건 아님.
-      if (amount == '수량을 선택하세요'){
+ // return: 불필요한 다음 함수를 실행하지 않도록 걸어주는 브레이크. 데이터가 정확함을 보증하는 수단이라고 생각하자! 리턴을 안 걸었다고 실행 속도를 느리게 한다거나 하는 건 아님.
+ /* Q. Dropdown list의 'value' 개념에 대해서 다시 질문하기. 
+  (amount == '수량을 선택하세요') - O
+  (amount == '수량을 선택하세요'), value="none" - X
+  (amount == 'none'), value="none" - O
+  (amount == 'none'), disabled - X
+  */
+      if (amount == 'none'){
         alert ('수량을 선택해 주세요!');
         $('#orderAmount').focus();
         return;
       } 
- 
+
       if (name == ''){
         alert ('성함을 입력해 주세요!');
         $('#clientName').focus();
@@ -108,7 +114,7 @@
       }
 
       if (contact_check = false){
-        alert ('전화번호를 입력해 주세요! 형식: 010-1234-1234')
+        alert ('010-****-**** 형식으로 전화번호를 입력해 주세요!')
         $('#clientContact').focus();
         return;
       }
@@ -128,42 +134,29 @@
       }
     }
 
-    function contact_check(){
-      if (contact.indexOf('010-') < 0)
-      // 010-이 있는 경우(true), 두 번째 대시를 기준으로 쪼개고, 숫자열을 붙인다
-      // 그 숫자 갯수가 8개이면 전화번호 인증 성공, 아니면 재입력 alert
-    }
-
-    function is_number_right(phone) {
-            // 정규표현식 --> 비추라고 하심. 정말 필요할 때 찾아볼 수 있도록 그냥 알아만 두기.
-
-            // 1. 010이 첫번째에 있나? indexOf
-            if (phone.indexOf('010') != 0) {
-                return false;
-            }
-
-            // 2. - 포함이 되어 있나?
-            if (phone.indexOf('-') == -1) {
-                return false;
-            }
-
-            // 3. - 두 개가 있나?
-            let phone_info = phone.split('-'); [ '010','1234','4567']
-            if (phone_info.length != 3) {
-                return false;
-            }
-
-            // 4. - 로 쪼개지는 숫자가 총 3개고, 3, 3, 4의 길이가 각각 맞나?
-            for (let i=1; i<phone_info.length; i++) {
-                if (phone_info[i].length != 4) {
-                    return false;
-                }
-            }
-
-            return true;
+    // 휴대폰 번호 유효성 검사 함수
+    // 정규표현식 --> 비추라고 하심. 정말 필요할 때 찾아볼 수 있도록 그냥 알아만 두기.
+    function contact_check(contact){
+        // 1. 010이 첫번째에 있나? 
+        if (contact.indexOf('010-') != 0){
+          return false;
+        } 
+        // 2. - 포함이 되어 있나?
+        if (contact.indexOf('-') == -1){
+          return false;
         }
-
-
+        // 3. - 두 개가 있나? contact.split('-') = ['010', '1234', '1234']
+        if (contact.split('-').length != 3){
+          return false;
+        }
+        // 4. - 로 쪼개지는 숫자가 총 3개고, 3, 4, 4의 길이가 각각 맞나?
+        for (let i = 1; i < 3; i++){
+          if (contact.split('-')[i].length != 4){
+            return false;
+          }
+          return true;
+        }
+      }
     
   </script>
 </head>
@@ -174,7 +167,7 @@
       <img src="https://i.pinimg.com/564x/71/4c/f7/714cf79acf34b7e985ec0149967573ea.jpg" alt="wooden mannequin">
     </div>
 
-    <!-- 제목 아래에 간격을 주고 싶은데 br 안 먹히는 이유ㅠㅠ -->
+    <!-- 제목 아래에 간격을 주고 싶은데 br 안 먹히는 이유ㅠㅠ : 아마도 코딩에 오타가 있었을 것. 작동하는 것이 맞음-->
     <div class="productInfo">
       <h1 id="itemName">인테리어 목각인형 화분<span id="itemPrice">가격: 10,000원/개</span></h1>
       <p>요즘 대세 플랜테리어를 도와줄 작은 친구들을 소개합니다. 다양한 포즈가 가능한 목각인형에 작은 식물이나 꽃을 안겨 주세요. 심심한 공간에 싱그러운 분위기를 불어넣어 줄 거에요.</p>
@@ -188,7 +181,7 @@
         <div class="form-group">
           <label for="exampleFormControlSelect1">수량(개)</label>
           <select class="form-control" id="orderAmount">
-            <option selected disabled>수량을 선택하세요</option>
+            <option value="none" selected>수량을 선택하세요</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -204,7 +197,7 @@
         
         <div class="form-group">
           <label for="exampleFormControlInput1">연락처</label>
-          <input type="number" class="form-control" id="clientContact">
+          <input type="number" class="form-control" id="clientContact" placeholder="010-****-****">
         </div>
 
         <div class="form-group">
