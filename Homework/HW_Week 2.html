@@ -113,7 +113,9 @@
         return;
       }
 
-      if (contact_check = false){
+      //contact_check 함수에서 처리한 변수를 넘겨줘야 하므로 ()안에 변수를 넣어 주어야 한다!
+      //if (contact_check(contact) == false){}로 입력하면 check 함수 안 먹힌다. 그런데 !== 조건으로 작성하면 작동한다!
+      if (contact_check(contact) !== false){
         alert ('010-****-**** 형식으로 전화번호를 입력해 주세요!')
         $('#clientContact').focus();
         return;
@@ -127,10 +129,11 @@
 
       else {
         alert ('감사합니다! 주문이 완료되었습니다:)');
-        $('#orderAmount').empty();
+        $('#orderAmount').val('none');
         $('#clientName').empty();
         $('#clientContact').empty();
         $('#clientAddress').empty();
+        $('#orderAmount').focus();
       }
     }
 
@@ -182,7 +185,7 @@
           <label for="exampleFormControlSelect1">수량(개)</label>
           <select class="form-control" id="orderAmount">
             <option value="none" selected>수량을 선택하세요</option>
-            <option>1</option>
+            <option value="1" >1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
