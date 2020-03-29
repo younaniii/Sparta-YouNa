@@ -33,16 +33,25 @@ soup = BeautifulSoup(data.text, 'html.parser')
 # 한 개만 가져오고 싶은 경우
     # soup.select_one('위와 동일')
 
-musicChart = soup.select('table.list-wrap > tbody > tr.list')
+musicChart = soup.select('tr.list')
+#musicChart = soup.select('table.list-wrap > tbody > tr.list')
 print(musicChart)
 
 rank = 1
 for song in musicChart:
-    info = song.select_one('td.info > a')
+    info = song.select_one('td.info')
+    # info = song.select_one('td.info > a')
+    # td.info > a까지 지정해서 가져올 경우, 위에서 select_one을 사용해서 '1개' 데이터만 가져왔기 때문에, 아래 코드가 먹히지 않음!
     if info is not None:
-        title = info.select_one('a.title ellipsis').text
-        artist = info.select_one('a.artist ellipsis').text
-        print(rank, title, artist)
+        title = info.select_one('a.title').text
+        artist = info.select_one('a.artist').text
+        #title = info.select_one('a.title ellipsis').text
+        #artist = info.select_one('a.artist ellipsis').text
+        print(rank, title.strip(), artist)
         rank += 1
         
-#.strip :공백을 지워주는 태그
+#.strip() :공백을 지워주는 태그
+
+
+
+

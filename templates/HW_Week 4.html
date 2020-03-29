@@ -135,6 +135,27 @@
         $('#clientAddress').val('');
         $('#orderAmount').focus();
       }
+    
+      $.ajax({
+        type: "POST",
+        url:"/orders",
+        data: {
+            orderAmount_give: orderAmount,
+            clientName_give: clientName,
+            clientContact_give: clientContact,
+            clientAddress_give: clientAddress
+        },
+        success: function(response){
+            if (response['result'] == 'success'){
+                alert(response['msg']);
+                $('#orderAmount').val('');
+                $('#clientName').val('');
+                $('#clientContact').val('');
+                $('#clientAddress').val('');
+                window.location.reload();
+            }
+        }
+      })
     }
 
     // 휴대폰 번호 유효성 검사 함수
@@ -162,6 +183,33 @@
           }
         return true;
         }
+      }
+
+      $(document).ready(function(){
+          $('#orders-box'),html('');
+          listing();
+      });
+
+      function listing(){
+          $.ajax({
+              type: "GET",
+              url: "/orders",
+              data: {},
+              success: function(response){
+                  if (response['result'] == 'success'){
+                      let orders = response['orders'];
+                      for (let i = 0; i < orders.length; i++){
+                          make_card(orders[i][orderAmount], orders[i][clientName], orders[i],[clientContact], orders[i][clientAddress])
+                      }
+                  } else {
+                      alert('주문정보를 불러오지 못했습니다.');
+                  }
+              }
+          })
+      }
+
+      function make_card(orderAmount, clientName, clientContact, clientAddress){
+          let temp_html = 
       }
     
   </script>

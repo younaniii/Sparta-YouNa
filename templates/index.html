@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W4 DB Practice</title>
+
+<!-- 잘못된 접근 -->
+<!--<link rel="stylesheet" href="css/mystyle.css">-->
+<!-- 옳은 접근: 이 html 파일은 Flask에서 읽어주는 것이기 때문에, Flask에서 미리 정의된 방법으로 경로를 입력해줘야 오류 없이 실행이 됨! -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+
+
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "/test?title_give=봄날은간다",
+            data: {},
+            success: function(response){
+               console.log(response)
+            }
+          })
+    </script>
+</head>
+<body>
+
+<h1>Welcome Home!</h1>
+
+</body>
+</html>
